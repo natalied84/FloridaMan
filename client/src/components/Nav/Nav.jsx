@@ -18,7 +18,7 @@ class Nav extends Component {
   render() {
     return (
       <>
-        <Menu inverted size='massive'>
+        <Menu style={{marginBottom: 0, height: "6vh" }} inverted size="massive">
 
           <Menu.Item
             name="home"

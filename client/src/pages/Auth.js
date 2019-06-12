@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import Login from "../components/Login";
-import Signup from "../components/Signup";
+import Login from "../components/Auth/Login.jsx";
+import Signup from "../components/Auth/Signup.jsx";
 import API from "../utils/API";
-import { BrowserRouter as  Router, Route } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 
 
@@ -86,7 +85,7 @@ class Auth extends Component {
 
   render() {
     return (
-      <div className="authBox">
+      <div style={{ marginTop: "10%" }} className="authBox">
         {(this.props.action === "login") ? (
           <Login
             email={this.state.email}

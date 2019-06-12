@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Grid, Image, GridColumn, GridRow, Button, Icon, Modal } from "semantic-ui-react";
-import ArticlePop from "./ArticlePop";
-import API from "../utils/API";
+import ArticleModal from "./ArticleModal/ArticleModal.jsx";
+import API from "../../utils/API";
+import "./Articles.css";
 
 class Card extends Component {
   state = {
@@ -68,30 +69,30 @@ class Card extends Component {
   };
 
   render() {
- 
+
     return (
       <Grid>
-        <GridRow style={{}}>
+        <GridRow>
           <GridColumn width={6}>
-            <Image src={this.props.imgUrl} rounded />
+            <Image style={{ maxHeight: 150 }} src={this.props.imgUrl} rounded />
           </GridColumn>
           <GridColumn width={10}>
             <h3>{this.props.headline}</h3>
             <Modal
-              size={'small'}
+              size={"small"}
               trigger={<Button
-                size='medium'
-                color='teal'
-                animated='fade'
+                size="medium"
+                color="teal"
+                animated="fade"
                 onClick={this.handleItemClick}>
                 <Button.Content visible>Read More</Button.Content>
                 <Button.Content hidden>
-                  <Icon name='eye' />
+                  <Icon name="eye" />
                 </Button.Content>
               </Button>}
               onClose={this.close}
               open={this.state.open}>
-              <ArticlePop
+              <ArticleModal
                 id={this.props.id}
                 saveFavorite={this.saveFavorite}
                 imgUrl={this.props.imgUrl}
@@ -102,25 +103,25 @@ class Card extends Component {
               />
 
             </Modal>
-            <Modal.Actions>
-
+            {/* <Modal.Actions> */}
               <div className="ui labeled right floated button" tabIndex="0" >
-                <div className="ui tiny orange button"
+                <div 
+                  className="ui tiny orange button"
                   onClick={() => this.handleDownIncrement(this.props.id)}>
                   <i className="thumbs down icon"></i>
-                        </div>
+                </div>
                 <a className="ui basic left pointing orange label">{this.state.downvote}
                 </a>
               </div>
               <div className="ui labeled right floated button" tabIndex="0">
-                <div className="ui tiny teal button"
+                <div 
+                  className="ui tiny teal button"
                   onClick={() => this.handleUpIncrement(this.props.id)}>
                   <i className="thumbs up icon"></i>
-                        </div>
+                </div>
                 <a className="ui basic teal left pointing label">{this.state.upvote}</a>
               </div>
-
-            </Modal.Actions>
+            {/* </Modal.Actions> */}
           </GridColumn>
         </GridRow>
       </Grid>

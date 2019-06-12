@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Grid, GridColumn } from "semantic-ui-react";
-// import { Header } from "semantic-ui-react";
-import Card from "../components/Card"
+import Card from "../components/Articles/Card.jsx"
 import "./styles.css"
 import { AutoSizer, List } from "react-virtualized";
 import API from "../utils/API"
@@ -32,10 +31,7 @@ class Favorites extends Component {
         const dataArray = this.state.articleData;
         return (
             <>
-                {/* <Header as='h1' textAlign='center' attached>
-                    Favorites
-                </Header> */}
-            <AutoSizer style={{ height: "83vh" }}>
+            <AutoSizer style={{ height: "83vh", marginTop: 25 }}>
                 {({ height, width }) => (
                     <List
                         height={height}
